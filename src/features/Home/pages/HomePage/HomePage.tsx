@@ -1,13 +1,14 @@
 import React, { FC } from "react"
-import { Container } from "./HomePage.style"
-import "./HomePage.style.ts"
+import ConversionForm from "../../../../components/ConversionForm/ConversionForm"
+import * as S from "./HomePage.style"
 
 interface HomePageProps {}
 
 const HomePage: FC<HomePageProps> = () => (
-  <Container className="HomePage" data-testid="HomePage">
-    HomePage Component
-  </Container>
+  <S.Container className="HomePage" data-testid="HomePage">
+    <S.Header>Tempature Converter</S.Header>
+    <ConversionForm />
+  </S.Container>
 )
 
 export default HomePage

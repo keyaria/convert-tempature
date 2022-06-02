@@ -8,6 +8,12 @@ export const Container = styled.div`
   align-items: center;
   margin: 0 auto;
   padding: 30px;
-  max-width: 600px;
+  max-width: 80vw;
+  height: 100vh;
   background-color: red
+`;
+
+export const Header = styled.h1`
+  
+
 `;

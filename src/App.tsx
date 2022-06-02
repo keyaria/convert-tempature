@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import { ThemeProvider } from "styled-components"
+import ToggleButtonTheme from "./components/ToggleButtonTheme/ToggleButtonTheme"
+import GlobalStyle from "./styles/global"
+import { light, dark } from "./styles/theme"
+import useThemeHook from "./contexts/useThemeHook"
+import HomePage from "./features/Home/pages/HomePage/HomePage"
 
 function App() {
+  const { theme, themeToggler } = useThemeHook()
+  const themeMode = theme === "light" ? light : dark
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyle />
+      <div className="App">
+        <header className="App-header">
+          <ToggleButtonTheme themeToggler={themeToggler} />
+        </header>
+        <HomePage />
+      </div>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+export default App
